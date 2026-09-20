@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Gym Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend application for gym management with user authentication features.
+
+## Overview
+
+This is a modern web application built with React 19 that provides user authentication (login and signup) functionality for a gym management system. The application communicates with a backend API to handle user authentication and session management.
+
+## Tech Stack
+
+- **React 19** - UI framework
+- **Axios** - HTTP client for API requests
+- **Create React App** - Build tooling and development environment
+
+## Features
+
+- User Login with username and password
+- User Registration with username, email, password, phone number, and address
+- Token-based authentication using localStorage
+- Responsive form components
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend API running on `http://127.0.0.1:8000`
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd mygym
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+The application will open at [http://localhost:3000](http://localhost:3000)
+
+## Backend Requirements
+
+This frontend expects a backend API to be running at `http://127.0.0.1:8000` with the following endpoints:
+
+- `POST /api/login/` - User authentication
+- `POST /api/signup/` - User registration
+
+Both endpoints should return a JSON response with a `token` field.
+
+## Project Structure
+
+```
+mygym/
+├── public/
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── Login/
+│   │   │   └── Login.js
+│   │   ├── Signup/
+│   │   │   └── Signup.js
+│   │   └── 404.html
+│   ├── App.js
+│   ├── index.js
+│   └── App.css
+├── package.json
+└── README.md
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode at [http://localhost:3000](http://localhost:3000)
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note: This is a one-way operation.** Ejects from Create React App and copies all configuration files into the project.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Security Considerations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚠️ **Important Security Notes:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Hardcoded API Endpoint**: The API endpoint is currently hardcoded in the source files (`http://127.0.0.1:8000`). Consider moving this to environment variables for better security and flexibility.
 
-## Learn More
+2. **localStorage for Tokens**: Authentication tokens are stored in localStorage, which is vulnerable to XSS attacks. For production, consider using:
+   - HttpOnly cookies
+   - Secure token storage mechanisms
+   - Additional security headers
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **No HTTPS**: The current setup uses HTTP. For production, always use HTTPS to encrypt data in transit.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Improvements
 
-### Code Splitting
+- Move API endpoints to environment variables
+- Implement proper token management with cookies
+- Add input validation and sanitization
+- Implement error handling and loading states
+- Add password strength validation
+- Implement route protection for authenticated pages
+- Add user profile management
+- Integrate with a proper backend framework (Django, Node.js, etc.)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is private and proprietary.
