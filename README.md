@@ -93,30 +93,6 @@ Builds the app for production to the `build` folder
 
 **Note: This is a one-way operation.** Ejects from Create React App and copies all configuration files into the project.
 
-## Security Considerations
-
-⚠️ **Important Security Notes:**
-
-1. **Hardcoded API Endpoint**: The API endpoint is currently hardcoded in the source files (`http://127.0.0.1:8000`). Consider moving this to environment variables for better security and flexibility.
-
-2. **localStorage for Tokens**: Authentication tokens are stored in localStorage, which is vulnerable to XSS attacks. For production, consider using:
-   - HttpOnly cookies
-   - Secure token storage mechanisms
-   - Additional security headers
-
-3. **No HTTPS**: The current setup uses HTTP. For production, always use HTTPS to encrypt data in transit.
-
-## Future Improvements
-
-- Move API endpoints to environment variables
-- Implement proper token management with cookies
-- Add input validation and sanitization
-- Implement error handling and loading states
-- Add password strength validation
-- Implement route protection for authenticated pages
-- Add user profile management
-- Integrate with a proper backend framework (Django, Node.js, etc.)
-
 ## License
 
-This project is private and proprietary.
+MIT Release - Check LICENSE file for details
